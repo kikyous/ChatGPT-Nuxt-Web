@@ -3,6 +3,7 @@ import { chatReplyProcess } from '../chatgpt'
 import { RequestProps } from '../types'
 
 export default defineEventHandler(async (event) => {
+  setHeader(event, 'Content-type', 'application/octet-stream');
   try {
     const { prompt, options = {}, systemMessage, temperature, top_p } = await readBody(event) as RequestProps
     let firstChunk = true
@@ -25,3 +26,7 @@ export default defineEventHandler(async (event) => {
     event.node.res.end()
   }
 })
+
+export const config = {
+  runtime: 'edge',
+}
