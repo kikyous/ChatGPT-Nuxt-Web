@@ -9,7 +9,10 @@ export default defineNuxtConfig({
           autoprefixer: {},
         },
     },
-    ssr: false,
+    routeRules: {
+        '/**': { ssr: false },
+        '/chat-process': { ssr: true },
+    },
     alias: {
         "@src": fileURLToPath(new URL('./src', import.meta.url)),
     }
