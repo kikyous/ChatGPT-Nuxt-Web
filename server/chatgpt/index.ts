@@ -79,7 +79,7 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
 
     options.apiReverseProxyUrl = isNotEmptyString(process.env.API_REVERSE_PROXY)
       ? process.env.API_REVERSE_PROXY
-      : 'https://bypass.churchless.tech/api/conversation'
+      : 'https://ai.fakeopen.com/api/conversation'
 
 
     api = new ChatGPTUnofficialProxyAPI({ ...options })
